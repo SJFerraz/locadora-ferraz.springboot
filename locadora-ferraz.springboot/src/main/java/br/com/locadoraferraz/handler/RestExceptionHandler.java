@@ -13,7 +13,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.locadoraferraz.error.ErrorDetails;
 import br.com.locadoraferraz.error.ResourceNotFoundDetails;
@@ -21,7 +20,7 @@ import br.com.locadoraferraz.error.ResourceNotFoundException;
 import br.com.locadoraferraz.error.ValidationErrorDetails;
 
 @ControllerAdvice
-public class RestExceptionHandler extends ResponseEntityExceptionHandler{
+public class RestExceptionHandler {
      @ExceptionHandler(ResourceNotFoundException.class)
      public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException rnfException){
     	 ResourceNotFoundDetails rnfDetails = ResourceNotFoundDetails.Builder
@@ -35,7 +34,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler{
     	 return new ResponseEntity<>(rnfDetails, HttpStatus.NOT_FOUND);
      }
      
-     @Override
+     @ExceptionHandler(MethodArgumentNotValidException.class)
      public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException manvException, 
     		                                                    HttpHeaders headers, 
     		                                                    HttpStatus status, 
@@ -57,7 +56,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler{
     	 return new ResponseEntity<>(manvDetails, HttpStatus.BAD_REQUEST);
      }
      
-     @Override
+     @ExceptionHandler
      public ResponseEntity<Object> handleExceptionInternal(Exception ex, 
     		                                               @Nullable Object body, 
     		                                               HttpHeaders headers, 
