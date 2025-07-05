@@ -1,25 +1,16 @@
 package br.com.locadoraferraz.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.Objects;
-import java.util.Set;
 
-import jakarta.persistence.Column;
+import br.com.locadoraferraz.annotation.JsonBRDataTimeFormat;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import br.com.locadoraferraz.annotation.JsonBRDataFormat;
-import br.com.locadoraferraz.annotation.JsonBRDataTimeFormat;
-import br.com.locadoraferraz.model.entity.Funcionario;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,7 +1,5 @@
 package br.com.locadoraferraz.error;
 
-import br.com.locadoraferraz.error.ResourceNotFoundDetails.Builder;
-
 public class ValidationErrorDetails extends ErrorDetails{
     private String field;
     private String fieldMessage;
