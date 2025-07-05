@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -22,7 +23,9 @@ public class ExcelPoiUtils {
     	 @Cleanup FileInputStream file = new FileInputStream(excelFile);
     	 @Cleanup Workbook workbook = new HSSFWorkbook(file);
     	 Sheet sheet = workbook.getSheetAt(0);
-    	 return (List<Row>) ListUtils.toList(sheet.iterator());
+    	 List<Row> listaRow = new ArrayList<>();
+    	 sheet.iterator().forEachRemaining(t-> listaRow.add(t));
+    	 return listaRow;
      }
      
      public static List<Row> excelToListrow(String pathFile) throws FileNotFoundException, IOException {
