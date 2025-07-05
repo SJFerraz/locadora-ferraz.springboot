@@ -1,14 +1,12 @@
 package br.com.locadoraferraz.util;
 
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 public final class DateUtils {
 	  public static final String FORMATO_HORA_1 = "HH:mm", 
